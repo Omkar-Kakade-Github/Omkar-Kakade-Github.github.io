@@ -92,7 +92,7 @@ class FluidAnimation {
       varying vec2 vR;
       varying vec2 vT;
       varying vec2 vB;
-      uniform vec2 texelSize;
+      uniform highp vec2 texelSize;
       void main () {
         vUv = aPosition * 0.5 + 0.5;
         vL = vUv - vec2(texelSize.x, 0.0);
@@ -105,8 +105,8 @@ class FluidAnimation {
     
     // Clear Shader
     const clearShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform float value;
@@ -148,7 +148,7 @@ class FluidAnimation {
       varying vec2 vUv;
       uniform sampler2D uVelocity;
       uniform sampler2D uSource;
-      uniform vec2 texelSize;
+      uniform highp vec2 texelSize;
       uniform float dt;
       uniform float dissipation;
       void main () {
@@ -160,8 +160,8 @@ class FluidAnimation {
     
     // Divergence Shader
     const divergenceShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying highp vec2 vUv;
       varying highp vec2 vL;
       varying highp vec2 vR;
@@ -181,8 +181,8 @@ class FluidAnimation {
     
     // Curl Shader
     const curlShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying highp vec2 vUv;
       varying highp vec2 vL;
       varying highp vec2 vR;
@@ -231,8 +231,8 @@ class FluidAnimation {
     
     // Pressure Shader
     const pressureShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying highp vec2 vUv;
       varying highp vec2 vL;
       varying highp vec2 vR;
@@ -257,8 +257,8 @@ class FluidAnimation {
     
     // Gradient Subtract Shader
     const gradientSubtractShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying highp vec2 vUv;
       varying highp vec2 vL;
       varying highp vec2 vR;
@@ -301,8 +301,8 @@ class FluidAnimation {
     
     // Bloom Prefilter Shader
     const bloomPrefilterShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform vec3 curve;
@@ -321,8 +321,8 @@ class FluidAnimation {
     
     // Bloom Blur Shader
     const bloomBlurShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform vec2 texelSize;
@@ -342,8 +342,8 @@ class FluidAnimation {
     
     // Bloom Final Shader
     const bloomFinalShader = `
-      precision mediump float;
-      precision mediump sampler2D;
+      precision highp float;
+      precision highp sampler2D;
       varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform sampler2D uBloom;
