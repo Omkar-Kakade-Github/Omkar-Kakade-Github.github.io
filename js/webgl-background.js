@@ -808,14 +808,14 @@ class FluidAnimation {
       const y = p.y / this.canvas.height;
       
       // Read velocity from texture
-      const pixels = new Float32Array(4);
+      const pixels = new Uint8Array(4);
       gl.bindFramebuffer(gl.FRAMEBUFFER, this.velocity.read.fbo);
       gl.readPixels(
         Math.floor(x * this.velocity.width),
         Math.floor(y * this.velocity.height),
         1, 1,
         gl.RGBA,
-        gl.FLOAT,
+        gl.UNSIGNED_BYTE,
         pixels
       );
       
