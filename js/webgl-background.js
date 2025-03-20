@@ -29,30 +29,31 @@ const fragmentShaderSource = `
         return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
     }
     
-    float noise(vec2 p) {
-        vec2 i = floor(p);
-        vec2 f = fract(p);
-        
-        float a = hash(i);
-        float b = hash(i + vec2(1.0, 0.0));
-        float c = hash(i + vec2(0.0, 1.0));
-        float d = hash(i + vec2(1.0, 1.0));
-        
-        vec2 u = f * f * (3.0 - 2.0 * f);
-        return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+    float circuitPattern(vec2 uv) {
+        uv *= 10.0;
+        vec2 grid = fract(uv) - 0.5;
+        vec2 id = floor(uv);
+        float line = smoothstep(0.02, 0.04, abs(grid.x) - 0.2) +
+                     smoothstep(0.02, 0.04, abs(grid.y) - 0.2);
+        return line * 0.5 + 0.5 * hash(id);
+    }
+    
+    float sparkEffect(vec2 uv) {
+        float t = mod(time * 0.5, 1.0);
+        float spark = smoothstep(0.1, 0.15, sin(uv.x * 15.0 + t * 10.0) * sin(uv.y * 15.0 - t * 10.0));
+        return spark * 1.5;
     }
     
     void main() {
         vec2 uv = (gl_FragCoord.xy - resolution.xy * 0.5) / resolution.y;
-        float r = length(uv);
-        float angle = atan(uv.y, uv.x);
+        float circuit = circuitPattern(uv);
+        float sparks = sparkEffect(uv);
         
-        float pattern = noise(uv * 5.0 + time * 0.5) * 0.6 +
-                        noise(uv * 10.0 - time * 0.2) * 0.3 +
-                        noise(uv * 20.0 + time * 0.1) * 0.1;
+        vec3 chipColor = vec3(0.1, 0.3, 0.2) + circuit * vec3(0.1, 0.5, 0.3);
+        vec3 sparkColor = vec3(0.0, 1.0, 1.0) * sparks;
         
-        vec3 color = vec3(pattern * 0.2, pattern * 0.5, pattern * 1.0);
-        gl_FragColor = vec4(color, 1.0);
+        vec3 finalColor = chipColor + sparkColor;
+        gl_FragColor = vec4(finalColor, 1.0);
     }
 `;
 
