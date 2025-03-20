@@ -11,6 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="icon" href="/images/avatar.jpg" />
     <link rel="preconnect" href="https://s4.zstatic.net" />
 <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
@@ -48,6 +49,7 @@
 
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
+    <canvas id="background-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
     <div id="layout">
         <transition name="fade">
             <div id="loading" v-show="loading">
@@ -292,6 +294,10 @@
     </div>
     <script src="/js/main.js"></script>
     <script src="/js/webgl-background.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const circuitBackground = new CircuitBackground('background-canvas');
+    });</script>
     
 </body>
 </html>
