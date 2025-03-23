@@ -148,6 +148,8 @@
     
     <div class="content" v-pre>
         <p>This guide provides step-by-step instructions for setting up a clean installation of Ubuntu on Windows Subsystem for Linux 2 (WSL2), followed by installing CUDA, cuDNN, and PyTorch for machine learning development.</p>
+<span id="more"></span>
+
 <h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><ul>
 <li>Windows 10 version 2004 or higher (Build 19041 or higher) or Windows 11</li>
 <li>A system with an NVIDIA GPU compatible with CUDA 12.4</li>
@@ -162,9 +164,9 @@
 </code></pre>
 </li>
 <li><p>Unregister any unwanted distributions:</p>
-<pre><code class="language-bash">wsl --unregister &lt;DistroName&gt;
+<pre><code class="language-bash">wsl --unregister DistroName
 </code></pre>
-<p> Replace <code>&lt;DistroName&gt;</code> with the name of the distribution you want to remove (e.g., <code>Ubuntu-20.04</code>).</p>
+<p> Replace <code>DistroName</code> with the name of the distribution you want to remove (e.g., <code>Ubuntu-20.04</code>).</p>
 </li>
 </ol>
 <h2 id="Step-2-Install-Ubuntu-Specifically-Ubuntu-24-04"><a href="#Step-2-Install-Ubuntu-Specifically-Ubuntu-24-04" class="headerlink" title="Step 2: Install Ubuntu(Specifically Ubuntu 24.04)"></a>Step 2: Install Ubuntu(Specifically Ubuntu 24.04)</h2><ol>
@@ -176,7 +178,7 @@
 <pre><code class="language-bash">wsl --install -d Ubuntu-24.04
 </code></pre>
 </li>
-<li><p>Once the installation is complete, you will be prompted to reboot your system.Once rebooted, open the ubuntu terminal and set your username and password.</p>
+<li><p>Once the installation is complete, you will be prompted to reboot your system. Once the system has been rebooted, open the ubuntu terminal and set your username and password.</p>
 </li>
 </ol>
 <h2 id="Step-3-Update-and-Upgrade-Ubuntu"><a href="#Step-3-Update-and-Upgrade-Ubuntu" class="headerlink" title="Step 3: Update and Upgrade Ubuntu"></a>Step 3: Update and Upgrade Ubuntu</h2><ol>
