@@ -82,10 +82,10 @@
     width: 300px;
 }
 #home-card #card-style {
-    background: #fff;
+    background: #ffffff;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 0 20px #d9d9d980;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     max-height: 80vh;
@@ -244,13 +244,14 @@
     color: #999;
 }
 #home-posts .post {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #d9d9d980;
-    transition: box-shadow 0.25s, transform 0.25s;
+    background: #ffffff; /* Pure white */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: #273142;
 }
 #home-posts .post .category-and-date {
-    color: #5c6b72;
+    color: #4F6380;
     margin-top: 15px;
     text-align: center;
     width: 100%;
@@ -310,6 +311,8 @@
 #home-posts .post-title {
     color: #66afef;
     text-align: center;
+    font-size: 24px;
+    font-weight: 700;
 }
 #home-posts .post:hover {
     box-shadow: 0 0 5px #d9d9d9;
@@ -319,6 +322,7 @@
     background: transparent;
     border-radius: 10px;
     display: flex;
+    flex-direction: row-reverse;
     margin: auto;
     padding: 20px;
 }
@@ -701,26 +705,22 @@ blockquote {
     padding: 0 15px;
 }
 body {
-    background: #a8aeb6;
-    color: #1e3e3f;
-    font: 500 14px Lexend, "Noto Sans SC", sans-serif;
+    background: #f5f6fa;
+    font-family: 'Inter', 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.8;
     overflow-x: hidden;
     width: 100%;
 }
 code {
-    background: #bddcf76b;
+    background: #e7f1fd;
     border-radius: 4px;
     line-height: 2.5;
     padding: 4px 8px;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #1e3e3f;
-    font-weight: bold;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Lexend', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     margin: 15px 0;
     word-break: keep-all;
 }
@@ -766,7 +766,8 @@ ol {
     margin: 15px 0;
 }
 pre {
-    border: 1px solid #ebeef5;
+    background: #282c34; /* Darker background for code */
+    border: none;
     border-radius: 15px;
     box-shadow: 0 2px 12px 0 #0000001a;
     margin: 25px 0;
@@ -778,7 +779,8 @@ code,
 .hljs,
 .input,
 .language {
-    font-family: "Fira Code", "Noto Sans SC", monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 14px;
 }
 table:not(.hljs-ln) {
     margin: 15px 0;
@@ -862,7 +864,8 @@ ol li {
         width: 500px;
     }
     #home-posts {
-        margin-right: 50px;
+        margin-left: 150px;
+        margin-right: 0;
         width: 850px;
     }
     #home-posts .post {
@@ -879,7 +882,7 @@ ol li {
         display: block;
     }
     #menu #mobile-menu {
-        display: none;
+        display: block;
     }
     .article,
     #archives,
